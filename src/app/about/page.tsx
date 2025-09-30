@@ -41,9 +41,9 @@ export default function AboutPage() {
           Email:{' '}
           <a
             className="underline decoration-gilt underline-offset-4"
-            href="mailto:you@example.com"
+            href="mailto:inaforseth@gmail.com"
           >
-            you@example.com
+            inaforseth@gmail.com
           </a>
         </p>
       </section>

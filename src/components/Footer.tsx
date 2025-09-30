@@ -44,14 +44,14 @@ export default function Footer({ sticky = false }: { sticky?: boolean }) {
 
         <div className="flex items-center gap-4">
           <a
-            href="mailto:you@example.com"
+            href="mailto:inaforseth@gmail.com"
             className="inline-flex items-center gap-2 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] rounded-xl px-2 py-1"
           >
             <Mail className="h-4 w-4" />
             <span>Email</span>
           </a>
           <a
-            href="https://github.com/youruser"
+            href="https://github.com/Inamarie84"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] rounded-xl px-2 py-1"
@@ -60,7 +60,7 @@ export default function Footer({ sticky = false }: { sticky?: boolean }) {
             <span>GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/youruser"
+            href="https://www.linkedin.com/in/ina-marie-forseth-66a7b232/"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] rounded-xl px-2 py-1"

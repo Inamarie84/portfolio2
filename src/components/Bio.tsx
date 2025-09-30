@@ -16,7 +16,7 @@ export default function Bio() {
       <div className="mt-4 flex flex-wrap gap-3 text-sm">
         <a
           className="underline decoration-gilt underline-offset-4"
-          href="https://github.com/youruser"
+          href="https://github.com/Inamarie84"
           target="_blank"
           rel="noreferrer"
         >
@@ -25,7 +25,7 @@ export default function Bio() {
         <span aria-hidden>•</span>
         <a
           className="underline decoration-gilt underline-offset-4"
-          href="https://www.linkedin.com/in/youruser"
+          href="https://www.linkedin.com/in/ina-marie-forseth-66a7b232/"
           target="_blank"
           rel="noreferrer"
         >

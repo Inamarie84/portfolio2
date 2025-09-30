@@ -1,12 +1,13 @@
 export type Project = {
   slug: string;
   title: string;
-  teaser: string; // ≤130 chars
-  hero: string; // public path to webp/png/jpg (≤200KB)
+  teaser: string; // short text (≤130 chars)
+  thumb: string; // teaser image path (800x500, ≤200KB)
+  hero: string; // article hero path (1280x800, ≤200KB)
   caption: string;
-  liveUrl: string; // opens in new tab
-  repoReadmeUrl: string; // direct README on GitHub (opens in new tab)
-  content: string[]; // paragraphs for the article body
+  liveUrl: string;
+  repoReadmeUrl: string;
+  content: string[];
 };
 
 export const projects: Project[] = [
@@ -15,6 +16,7 @@ export const projects: Project[] = [
     title: 'CSS Frameworks',
     teaser:
       'Responsive UI with a reusable component library and utility-first workflow.',
+    thumb: '/projects/css-frameworks-thumb.webp',
     hero: '/projects/css-frameworks-hero.webp',
     caption: 'Component library overview',
     liveUrl: 'https://example.com/css-frameworks',
@@ -32,7 +34,8 @@ export const projects: Project[] = [
     title: 'JavaScript Frameworks',
     teaser:
       'SPA features with clean state management and accessible components.',
-    hero: '/projects/js-frameworks-hero.webp',
+    thumb: '/projects/javascript-frameworks-thumb.webp',
+    hero: '/projects/javascript-frameworks-hero.webp',
     caption: 'App screens and flows',
     liveUrl: 'https://example.com/javascript-frameworks',
     repoReadmeUrl:
@@ -44,7 +47,8 @@ export const projects: Project[] = [
     title: 'Semester Project 2',
     teaser:
       'End-to-end project: fetching data, product pages, and checkout UX.',
-    hero: '/projects/sp2-hero.webp',
+    thumb: '/projects/semester-project-thumb.webp',
+    hero: '/projects/semester-project-hero.webp',
     caption: 'Storefront and product details',
     liveUrl: 'https://example.com/sp2',
     repoReadmeUrl:

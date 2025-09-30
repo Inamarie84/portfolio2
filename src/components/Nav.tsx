@@ -82,7 +82,7 @@ export default function Nav() {
 
           <div className="ml-2 flex items-center gap-3">
             <a
-              href="mailto:you@example.com"
+              href="mailto:inaforseth@gmail.com"
               aria-label="Email me"
               className="inline-flex items-center gap-2 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] rounded-xl px-2 py-1"
             >
@@ -90,7 +90,7 @@ export default function Nav() {
               <span className="hidden sm:inline">Email</span>
             </a>
             <a
-              href="https://github.com/youruser"
+              href="https://github.com/Inamarie84"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -100,7 +100,7 @@ export default function Nav() {
               <span className="hidden sm:inline">GitHub</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/youruser"
+              href="https://www.linkedin.com/in/ina-marie-forseth-66a7b232/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
