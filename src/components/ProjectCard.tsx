@@ -17,7 +17,7 @@ export default function ProjectCard(props: {
       <div className="p-5">
         <h3 className="text-lg font-semibold">{title}</h3>
         <p className="mt-1 text-sm/6 text-ink/70 line-clamp-2">{teaser}</p>
-        <span className="mt-4 inline-flex items-center gap-2 text-evergreen text-sm font-medium">
+        <span className="mt-4 inline-flex items-center gap-2 text-midnight text-sm font-medium">
           Read more →
         </span>
       </div>

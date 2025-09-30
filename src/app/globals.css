@@ -1,64 +1,22 @@
-/* Tailwind v4 – configless setup */
 @import 'tailwindcss';
 
-/* ===== Design tokens (your palette, radii, shadows) ===== */
+/* ===== Tokens ===== */
 @theme {
-  /* Named palette */
   --color-ink: #121212;
   --color-porcelain: #f6f5f3;
   --color-stone: #d8cfc4;
-  --color-evergreen: #1e3a34;
-  --color-sage: #6c8b7b;
+
+  /* Renamed for clarity */
+  --color-midnight: #2c3e50; /* primary */
+  --color-slate: #5d6d7e; /* secondary */
+
   --color-gilt: #c2a873;
 
-  /* Shape & elevation */
   --radius-xl: 12px;
   --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.06);
-
-  /* (Optional) spacing tokens if you want custom steps
-  --spacing-3xs: 4px;
-  --spacing-2xs: 8px;
-  --spacing-xs: 12px;
-  --spacing-sm: 16px;
-  --spacing-md: 24px;
-  --spacing-lg: 32px;
-  --spacing-xl: 48px;
-  --spacing-2xl: 64px;
-  */
 }
 
-/* ===== Base (fonts + default colors) =====
-   The font variables come from next/font in layout.tsx:
-   --font-head, --font-body
-*/
-:root {
-  color: var(--color-ink);
-  background: var(--color-porcelain);
-
-  font-family:
-    var(--font-body, ui-sans-serif),
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Arial,
-    sans-serif;
-}
-h1,
-h2,
-h3 {
-  font-family: var(--font-head, var(--font-body)), sans-serif;
-  letter-spacing: -0.01em;
-}
-
-/* Text selection (subtle luxe accent) */
-::selection {
-  background: color-mix(in oklab, var(--color-gilt) 30%, transparent);
-}
-
-/* ===== Optional: shadcn/ui compatibility layer =====
-   Many shadcn templates use CSS vars like bg-background / text-foreground.
-   Map those to your palette so components work out-of-the-box.
-*/
+/* ===== shadcn/ui compatibility (maps to your tokens) ===== */
 @theme inline {
   --color-background: var(--color-porcelain);
   --color-foreground: var(--color-ink);
@@ -68,11 +26,12 @@ h3 {
   --color-popover: var(--color-porcelain);
   --color-popover-foreground: var(--color-ink);
 
-  --color-primary: var(--color-evergreen);
+  /* Primary/secondary now point to Midnight/Slate */
+  --color-primary: var(--color-midnight);
   --color-primary-foreground: var(--color-porcelain);
 
-  --color-secondary: color-mix(in oklab, var(--color-stone) 85%, white);
-  --color-secondary-foreground: var(--color-ink);
+  --color-secondary: var(--color-slate);
+  --color-secondary-foreground: var(--color-porcelain);
 
   --color-muted: color-mix(in oklab, var(--color-stone) 80%, white);
   --color-muted-foreground: color-mix(in oklab, var(--color-ink) 60%, white);
@@ -87,30 +46,30 @@ h3 {
   --color-input: color-mix(in oklab, var(--color-ink) 12%, transparent);
   --color-ring: var(--color-gilt);
 
-  /* Sidebar/chart variables (used by some shadcn examples) */
   --color-sidebar: var(--color-porcelain);
   --color-sidebar-foreground: var(--color-ink);
-  --color-sidebar-primary: var(--color-evergreen);
+  --color-sidebar-primary: var(--color-midnight);
   --color-sidebar-primary-foreground: var(--color-porcelain);
   --color-sidebar-accent: var(--color-gilt);
   --color-sidebar-accent-foreground: var(--color-ink);
   --color-sidebar-border: var(--color-border);
   --color-sidebar-ring: var(--color-ring);
 
-  --radius: 0.75rem; /* base radius for components */
+  --radius: 0.75rem;
 }
 
-/* ===== Dark mode (toggle by adding class="dark" on <html>) ===== */
+/* ===== Dark mode remap ===== */
 .dark {
   --color-ink: #f6f5f3;
-  --color-porcelain: #0e0f0e;
-  --color-stone: #2a2a28;
-  --color-evergreen: #152723;
-  --color-sage: #6c8b7b;
+  --color-porcelain: #0e1318;
+  --color-stone: #222a31;
+
+  --color-midnight: #1b2838; /* darker Midnight */
+  --color-slate: #718ca1; /* lighten for contrast */
+
   --color-gilt: #c2a873;
 
-  /* remap shadcn vars for dark */
-  --color-background: var(--color-porcelain); /* now dark bg */
+  --color-background: var(--color-porcelain);
   --color-foreground: var(--color-ink);
 
   --color-card: var(--color-stone);
@@ -118,11 +77,11 @@ h3 {
   --color-popover: var(--color-stone);
   --color-popover-foreground: var(--color-ink);
 
-  --color-primary: var(--color-evergreen);
+  --color-primary: var(--color-midnight);
   --color-primary-foreground: var(--color-porcelain);
 
-  --color-secondary: color-mix(in oklab, var(--color-stone) 60%, black);
-  --color-secondary-foreground: var(--color-ink);
+  --color-secondary: var(--color-slate);
+  --color-secondary-foreground: var(--color-porcelain);
 
   --color-muted: color-mix(in oklab, var(--color-stone) 55%, black);
   --color-muted-foreground: color-mix(in oklab, var(--color-ink) 70%, white);
@@ -133,24 +92,4 @@ h3 {
   --color-border: color-mix(in oklab, white 10%, transparent);
   --color-input: color-mix(in oklab, white 12%, transparent);
   --color-ring: var(--color-gilt);
-}
-
-/* ===== Base layer to hook shadcn utilities ===== */
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-/* ===== Handy utility helpers (optional) ===== */
-.btn-primary {
-  @apply inline-flex items-center justify-center rounded-xl px-4 py-2
-         bg-primary text-primary-foreground hover:opacity-90
-         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[--color-ring];
-}
-.card {
-  @apply rounded-xl bg-card text-card-foreground shadow-[var(--shadow-card)];
 }
