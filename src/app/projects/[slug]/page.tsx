@@ -79,10 +79,10 @@ export default async function ProjectPage({
 
         {/* Body */}
         <div className="px-4 sm:px-6 pb-6">
-          <figure className="my-6 overflow-hidden rounded-xl bg-porcelain shadow-[var(--shadow-card)]">
+          <figure className="mt-4 mb-6 overflow-hidden rounded-xl bg-porcelain shadow-[var(--shadow-card)]">
             <Image
               src={project.hero}
-              alt={project.caption}
+              alt=""
               width={1280}
               height={800}
               className="h-auto w-full"
