@@ -1,6 +1,6 @@
 // src/components/LinkButton.tsx
 import Link from 'next/link';
-import { Button, type buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 
 type Props = React.PropsWithChildren<{
   href: string;

@@ -1,6 +1,5 @@
 // /app/projects/[slug]/page.tsx (your current file)
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getProject, projects } from '@/data/projects';
@@ -52,7 +51,7 @@ export default async function ProjectPage({
           </h1>
 
           {/* Toolbar: back | badges | copy */}
-          <div className="mt-3 grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] sm:items-center gap-3">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] sm:items-center gap-3">
             {/* left: back */}
             <div className="flex justify-center sm:justify-start">
               <BackButton />
