@@ -1,7 +1,6 @@
 // src/components/ProjectCard.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
 
 export default function ProjectCard({
   slug,
@@ -20,11 +19,8 @@ export default function ProjectCard({
       className="group block focus-visible:outline-none"
       aria-label={`Read more about ${title}`}
     >
-      <Card
-        variant="plain"
-        className="rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-md"
-      >
-        <div className="aspect-[16/10] w-full overflow-hidden">
+      <div className="rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-md">
+        <div className="aspect-[16/10] w-full overflow-hidden rounded-t-xl">
           <Image
             src={thumb}
             alt={`${title} thumbnail`}
@@ -35,15 +31,14 @@ export default function ProjectCard({
           />
         </div>
 
-        {/* Give the content its own padding so the image sits flush */}
-        <CardContent className="p-5 space-y-2">
+        <div className="p-5 space-y-2">
           <h3 className="text-lg font-semibold">{title}</h3>
           <p className="text-sm/6 text-ink/70 line-clamp-2">{teaser}</p>
           <span className="inline-flex items-center gap-2 text-midnight text-sm font-medium pt-1">
             Read more →
           </span>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </Link>
   );
 }

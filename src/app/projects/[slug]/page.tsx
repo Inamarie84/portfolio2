@@ -7,13 +7,6 @@ import { getProject, projects } from '@/data/projects';
 import CopyLinkButton from '@/components/CopyLinkButton';
 import BackButton from '@/components/BackButton';
 import ProjectContent from '@/components/ProjectContent';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from '@/components/ui/card';
 
 type Params = { slug: string };
 
@@ -50,12 +43,12 @@ export default async function ProjectPage({
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
-      <Card className="shadow-[var(--shadow-card)]">
-        {/* Title */}
-        <CardHeader className="px-4 sm:px-6">
-          <CardTitle className="text-center text-2xl md:text-3xl font-semibold tracking-tight">
+      <article className="rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)]">
+        {/* Header */}
+        <header className="px-4 sm:px-6 pt-6">
+          <h1 className="text-center text-2xl md:text-3xl font-semibold tracking-tight">
             {project.title}
-          </CardTitle>
+          </h1>
 
           {/* Toolbar: back | badges | copy */}
           <div className="mt-3 grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] sm:items-center gap-3">
@@ -77,16 +70,16 @@ export default async function ProjectPage({
               </span>
             </div>
 
-            {/* right: copy link */}
+            {/* right: copy */}
             <div className="flex justify-center sm:justify-end">
               <CopyLinkButton />
             </div>
           </div>
-        </CardHeader>
+        </header>
 
-        {/* Hero + links + content */}
-        <CardContent className="px-0">
-          <figure className="mx-4 sm:mx-6 mb-6 overflow-hidden rounded-xl bg-porcelain shadow-[var(--shadow-card)]">
+        {/* Body */}
+        <div className="px-4 sm:px-6 pb-6">
+          <figure className="my-6 overflow-hidden rounded-xl bg-porcelain shadow-[var(--shadow-card)]">
             <Image
               src={project.hero}
               alt={project.caption}
@@ -101,7 +94,7 @@ export default async function ProjectPage({
           </figure>
 
           {/* CTAs */}
-          <div className="mb-8 flex flex-wrap items-center gap-3 px-4 sm:px-6">
+          <div className="mb-8 flex flex-wrap items-center gap-3">
             <Link
               href={project.liveUrl}
               target="_blank"
@@ -130,14 +123,8 @@ export default async function ProjectPage({
 
           {/* Content */}
           <ProjectContent paragraphs={project.content} initiallyVisible={2} />
-        </CardContent>
-
-        {/* Optional footer (you can move Copy/Back here if you want a bottom toolbar) */}
-        {/* <CardFooter className="justify-between">
-          <BackButton />
-          <CopyLinkButton />
-        </CardFooter> */}
-      </Card>
+        </div>
+      </article>
     </main>
   );
 }
