@@ -12,7 +12,6 @@ export default function Footer({ sticky = false }: { sticky?: boolean }) {
     const el = ref.current;
     if (!el) return;
 
-    // When the footer enters the viewport, turn on the glassy style
     const io = new IntersectionObserver(
       ([entry]) => setActive(entry.isIntersecting),
       { root: null, threshold: 0.01, rootMargin: '0px' },
@@ -34,12 +33,14 @@ export default function Footer({ sticky = false }: { sticky?: boolean }) {
         'transition-colors duration-300',
       ].join(' ')}
     >
-      <div className="mx-auto max-w-5xl px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div className="mx-auto max-w-5xl px-4 py-8 flex flex-col items-center justify-center gap-3 text-sm text-center">
         <p>
           © {new Date().getFullYear()} {site.name}. Built with Next.js &amp;
           Tailwind.
         </p>
-        <SocialLinks />
+
+        {/* Social icons centered beneath the text */}
+        <SocialLinks className="justify-center" />
       </div>
     </footer>
   );

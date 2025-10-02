@@ -27,10 +27,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${roboto.variable}`}>
-      <body className="bg-porcelain text-ink">
+      <body className="min-h-screen flex flex-col bg-porcelain text-ink">
+        {/* Optional: Skip link for keyboard users */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 rounded bg-white px-3 py-2 text-sm"
+        >
+          Skip to content
+        </a>
+
         <Nav />
-        {children}
-        <Footer />
+
+        <main id="main" role="main" className="flex-1">
+          {children}
+        </main>
+
+        <Footer sticky={false} />
       </body>
     </html>
   );

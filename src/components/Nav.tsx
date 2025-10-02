@@ -41,13 +41,24 @@ export default function Nav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll(); // set initial state
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <header className="bg-midnight text-porcelain sticky top-0 z-40 border-b border-[--color-border]">
+    <header
+      className={[
+        'sticky top-0 z-40 border-b border-[--color-border] text-porcelain',
+        // base color
+        'bg-midnight',
+        // glass/blur when scrolled (matches footer’s active style)
+        scrolled
+          ? 'bg-midnight/90 supports-[backdrop-filter]:backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.15)]'
+          : '',
+        'transition-colors duration-300',
+      ].join(' ')}
+    >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <Link href="/" className="text-lg font-semibold tracking-tight">
           {site.name}

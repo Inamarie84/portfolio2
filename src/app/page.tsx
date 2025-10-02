@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-12">
       <section className="mb-12">
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
           Hi, I’m Ina — Frontend Developer
@@ -40,6 +40,6 @@ export default function HomePage() {
       </section>
 
       <Bio />
-    </main>
+    </div>
   );
 }

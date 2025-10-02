@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function BackButton({
   fallback = '/',
-  dark = false, // pass true when used on Midnight
+  dark = false,
 }: {
   fallback?: string;
   dark?: boolean;
@@ -22,7 +22,7 @@ export default function BackButton({
   }
 
   const base =
-    'inline-flex items-center gap-2 rounded-xl border border-[--color-border] px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] cursor-pointer';
+    'inline-flex items-center gap-2 rounded-xl border border-[--color-border] px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] cursor-pointer whitespace-nowrap';
   const hover = dark
     ? 'hover:bg-porcelain/10 active:bg-porcelain/15'
     : 'hover:bg-ink/5 active:bg-ink/10';

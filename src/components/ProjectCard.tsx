@@ -1,6 +1,7 @@
 // src/components/ProjectCard.tsx
 import Image from 'next/image';
 import Link from 'next/link';
+import { Card, CardContent } from '@/components/ui/card';
 
 export default function ProjectCard({
   slug,
@@ -16,26 +17,33 @@ export default function ProjectCard({
   return (
     <Link
       href={`/projects/${slug}`}
-      className="group block rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)] hover:-translate-y-0.5 transition"
+      className="group block focus-visible:outline-none"
       aria-label={`Read more about ${title}`}
     >
-      <div className="aspect-[16/10] overflow-hidden rounded-t-xl">
-        <Image
-          src={thumb}
-          alt={`${title} thumbnail`}
-          width={800}
-          height={500}
-          className="h-full w-full object-cover"
-          priority
-        />
-      </div>
-      <div className="p-5">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="mt-1 text-sm/6 text-ink/70 line-clamp-2">{teaser}</p>
-        <span className="mt-4 inline-flex items-center gap-2 text-midnight text-sm font-medium">
-          Read more →
-        </span>
-      </div>
+      <Card
+        variant="plain"
+        className="rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-md"
+      >
+        <div className="aspect-[16/10] w-full overflow-hidden">
+          <Image
+            src={thumb}
+            alt={`${title} thumbnail`}
+            width={800}
+            height={500}
+            className="h-full w-full object-cover"
+            priority
+          />
+        </div>
+
+        {/* Give the content its own padding so the image sits flush */}
+        <CardContent className="p-5 space-y-2">
+          <h3 className="text-lg font-semibold">{title}</h3>
+          <p className="text-sm/6 text-ink/70 line-clamp-2">{teaser}</p>
+          <span className="inline-flex items-center gap-2 text-midnight text-sm font-medium pt-1">
+            Read more →
+          </span>
+        </CardContent>
+      </Card>
     </Link>
   );
 }

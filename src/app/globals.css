@@ -1,22 +1,25 @@
 @import 'tailwindcss';
 
-/* ===== Tokens ===== */
+/* ===== Tokens (light) ===== */
 @theme {
   --color-ink: #121212;
   --color-porcelain: #f6f5f3;
   --color-stone: #d8cfc4;
 
-  /* Renamed for clarity */
+  /* Brand */
   --color-midnight: #2c3e50; /* primary */
   --color-slate: #5d6d7e; /* secondary */
-
   --color-gilt: #c2a873;
 
   --radius-xl: 12px;
   --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  /* Badges/chips (light) */
+  --chip-bg: color-mix(in oklab, var(--color-slate) 15%, white);
+  --chip-fg: var(--color-slate);
 }
 
-/* ===== shadcn/ui compatibility (maps to your tokens) ===== */
+/* ===== shadcn/ui compatibility ===== */
 @theme inline {
   --color-background: var(--color-porcelain);
   --color-foreground: var(--color-ink);
@@ -26,7 +29,6 @@
   --color-popover: var(--color-porcelain);
   --color-popover-foreground: var(--color-ink);
 
-  /* Primary/secondary now point to Midnight/Slate */
   --color-primary: var(--color-midnight);
   --color-primary-foreground: var(--color-porcelain);
 
@@ -58,15 +60,14 @@
   --radius: 0.75rem;
 }
 
-/* ===== Dark mode remap ===== */
+/* ===== Dark mode overrides (outside @theme) ===== */
 .dark {
   --color-ink: #f6f5f3;
   --color-porcelain: #0e1318;
   --color-stone: #222a31;
 
-  --color-midnight: #1b2838; /* darker Midnight */
-  --color-slate: #718ca1; /* lighten for contrast */
-
+  --color-midnight: #1b2838;
+  --color-slate: #718ca1;
   --color-gilt: #c2a873;
 
   --color-background: var(--color-porcelain);
@@ -92,4 +93,8 @@
   --color-border: color-mix(in oklab, white 10%, transparent);
   --color-input: color-mix(in oklab, white 12%, transparent);
   --color-ring: var(--color-gilt);
+
+  /* Badges/chips (dark) */
+  --chip-bg: color-mix(in oklab, var(--color-slate) 25%, black);
+  --chip-fg: var(--color-slate);
 }
