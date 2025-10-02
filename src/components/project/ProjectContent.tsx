@@ -4,6 +4,19 @@
 import { useId, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
+const ALLOW_LABELS = [
+  'Overview',
+  'Scope',
+  'Objectives',
+  'Constraints',
+  'Process',
+  'Outcomes',
+  'Improvements',
+  'Learnings',
+  'Results',
+  'Notes',
+];
+
 export default function ProjectContent({
   paragraphs,
   initiallyVisible = 2,
@@ -21,7 +34,6 @@ export default function ProjectContent({
 
   function toggle() {
     if (expanded) {
-      // collapse: scroll the section into view so the user isn’t left mid-article
       sectionRef.current?.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -41,11 +53,31 @@ export default function ProjectContent({
         )}
       >
         <div className="space-y-5 md:space-y-6">
-          {visibleParas.map((para, i) => (
-            <p key={i} className="text-ink/85 leading-relaxed">
-              {para}
-            </p>
-          ))}
+          {visibleParas.map((para, i) => {
+            // Bold the label before ":" if it matches allowed labels
+            // or starts with "Challenge → ..."
+            const match = para.match(/^\s*([^:]+):\s*(.*)$/);
+            if (match) {
+              const [, label, rest] = match;
+              const isAllowed =
+                ALLOW_LABELS.some((k) => label.startsWith(k)) ||
+                label.startsWith('Challenge');
+
+              if (isAllowed) {
+                return (
+                  <p key={i} className="text-ink/85 leading-relaxed">
+                    <strong>{label}:</strong> {rest}
+                  </p>
+                );
+              }
+            }
+
+            return (
+              <p key={i} className="text-ink/85 leading-relaxed">
+                {para}
+              </p>
+            );
+          })}
         </div>
 
         {/* Fade overlay (only when collapsed) */}

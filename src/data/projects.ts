@@ -27,33 +27,15 @@ export const projects: Project[] = [
     repoReadmeUrl:
       'https://github.com/Inamarie84/css-frameworks-ca/blob/css-frameworks/README.md',
     content: [
-      // Overview
-      'RunSocial is a lightweight, responsive UI built with Tailwind CSS. I focused on accessibility and performance: keyboard navigation (skip link + focus styles), proper image sizing to avoid layout shifts, and clearer mobile nav semantics. Role: solo developer.',
-
-      // Objectives
-      'Objectives: (1) Improve accessibility for keyboard and assistive tech users, (2) reduce cumulative layout shift on the feed grid, (3) tidy the asset paths and semantics so the UI is stable and predictable.',
-
-      // Constraints
-      'Constraints: static HTML/CSS + minimal JavaScript for menu toggling. I used Tailwind utility classes only—no component frameworks—to keep the footprint small and predictable.',
-
-      // Process (high level)
-      "Process: I added a visible-on-focus Skip to content link targeting <main id='main'>, ensured consistent focus rings, and refactored the mobile menu button to use aria-controls and aria-expanded. On the feed page, I assigned intrinsic width/height to images and used a consistent aspect ratio to eliminate layout jumps. Finally, I normalized asset paths in <head>.",
-
-      // Challenge 1
-      "Challenge → Keyboard flow and semantics: Screen-reader users couldn't quickly bypass header nav; focus outlines were inconsistent. Solution: Add an accessible skip link and unify focus styles using focus-visible ring utilities. Result: Tab reaches skip link immediately; focus is clear and consistent.",
-      // Challenge 2
-      "Challenge → CLS on feed cards: Images were missing intrinsic dimensions and had fixed heights, causing reflows. Solution: Add width/height + loading='lazy' + aspect-[16/10]; remove fixed h-32. Result: Smooth load with no content jump as images render.",
-      // Challenge 3
-      "Challenge → Mobile menu semantics: Button didn't communicate open/closed state. Solution: JS toggles aria-expanded in sync with the hidden class. Result: Assistive tech accurately reflects menu state.",
-
-      // Outcomes
-      'Outcomes: improved keyboard navigation, stabilized layout on image load, and a clearer nav experience on mobile. The skeleton loader spacing was also adjusted (mt-10) for visual balance.',
-
-      // Improvements / commits (mention without linking if you prefer)
-      'Key improvements included: skip link + focus rings (auth page); image width/height + lazy + aspect on feed; aria-expanded toggling; and relative assets in <head>. See repository commit history for details.',
-
-      // Learnings
-      'Learnings: (1) Intrinsic image sizes and a consistent aspect ratio are the fastest wins against CLS, (2) aria-expanded must be kept in sync in JS to be meaningful, and (3) a simple skip link dramatically improves keyboard UX with almost no visual cost.',
+      'Overview: RunSocial is a lightweight, responsive UI built with Tailwind CSS. It includes Auth, Feed, and Profile screens. Role: solo developer.',
+      'Scope: Accessible navigation, stable image loading, consistent spacing, and minimal JS for menu toggling—no component frameworks.',
+      'Objectives: (1) Improve keyboard and screen-reader UX, (2) reduce layout shift in the feed grid, (3) tidy semantics/paths for predictability.',
+      'Process: Added a visible-on-focus Skip to content link, unified focus rings, and synced the mobile menu’s aria-expanded with its open state.',
+      "Challenge → CLS on feed cards: Images lacked intrinsic sizes. Fix: width/height + loading='lazy' + aspect ratio. Result: smooth, no jumps.",
+      'Challenge → Keyboard flow: Hard to bypass the header. Fix: skip link + consistent focus states. Result: faster, clearer navigation.',
+      'Outcomes: More stable layout, better mobile nav semantics, and cleaner spacing (e.g., skeleton loader mt-10).',
+      'Improvements: Skip link + focus rings, intrinsic image sizing + lazy loading, aria-expanded syncing, and normalized asset paths.',
+      'Learnings: Intrinsic sizing removes most CLS; aria-* must reflect real state; a simple skip link meaningfully improves keyboard UX.',
     ],
   },
   {
@@ -69,7 +51,16 @@ export const projects: Project[] = [
     liveUrl: 'https://jsf-online-shop.vercel.app/',
     repoReadmeUrl:
       'https://github.com/Inamarie84/jsf-online-shop/blob/main/README.md',
-    content: ['Overview content paragraph…', 'Improvements with commit links…'],
+    content: [
+      'Overview: Markéta is a Next.js + TypeScript storefront with product listing, product details, cart, checkout success, and contact form.',
+      'Scope: Strict typing, Zustand for cart state, Tailwind styling, and Noroff API integration for products.',
+      'Objectives: (1) Clean state management, (2) accessible and responsive UI, (3) type-safe components and API calls.',
+      'Process: Built typed product models, lifted cart state into a small store, and kept components focused and testable.',
+      'Challenge → Loading UI: Prevent layout jumps while data streams. Fix: intrinsic image sizes + predictable aspect ratios.',
+      'Improvements: Added JSDoc to core components, replaced index keys in lists, removed unused Jest types, and fixed minor type/typo issues.',
+      'Outcomes: Clearer DX via docs/types, more robust rendering, and fewer reconciliation edge cases.',
+      'Learnings: Stable keys matter for perceived quality; small, well-scoped types + JSDoc improve both safety and maintainability.',
+    ],
   },
   {
     slug: 'semester-project-2',
@@ -84,7 +75,16 @@ export const projects: Project[] = [
     liveUrl: 'https://auction-vintageitems.netlify.app/',
     repoReadmeUrl:
       'https://github.com/Inamarie84/semester-project-2/blob/main/README.md',
-    content: ['Overview…', 'Results…', 'Improvements with commit links…'],
+    content: [
+      'Overview: An auction platform where users create listings, place bids, and manage profiles. Non-registered users can browse and search.',
+      'Scope: Auth, profile, create listing, bid flow, listing details with bids, and search—Tailwind UI with skeleton loaders.',
+      'Objectives: (1) Reliable API flows, (2) safe/clear error handling, (3) responsive, accessible UI components.',
+      'Process: Implemented listing/bid endpoints, consistent headers, and reusable DOM utilities for messages and errors.',
+      'Challenge → Error consistency: Some code paths returned values, others didn’t. Fix: enforce consistent returns in async handlers.',
+      'Improvements: Switched to template literals, removed console logs, URL-encoded search queries, safer JSON parsing, clearer error messages.',
+      'Outcomes: Fewer edge-case failures, clearer UX feedback, and more maintainable code.',
+      'Learnings: Small reliability tweaks (returns, encoding, logging hygiene) quickly improve real user flows and debuggability.',
+    ],
   },
 ];
 

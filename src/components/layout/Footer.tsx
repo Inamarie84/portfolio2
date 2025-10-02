@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import SocialLinks from '@/components/SocialLinks';
+import SocialLinks from '@/components/layout/SocialLinks';
 import { site } from '@/config/site';
 
 export default function Footer({ sticky = false }: { sticky?: boolean }) {

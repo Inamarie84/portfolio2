@@ -1,5 +1,5 @@
 import { site } from '@/config/site';
-import SocialLinks from '@/components/SocialLinks';
+import SocialLinks from '@/components/layout/SocialLinks';
 
 export default function Bio() {
   return (

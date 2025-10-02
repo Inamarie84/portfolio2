@@ -1,6 +1,6 @@
-import ProjectCard from '@/components/ProjectCard';
+import ProjectCard from '@/components/project/ProjectCard';
 import { projects } from '@/data/projects';
-import Bio from '@/components/Bio';
+import Bio from '@/components/misc/Bio';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

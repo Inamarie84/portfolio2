@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getProject, projects } from '@/data/projects';
-import CopyLinkButton from '@/components/CopyLinkButton';
-import BackButton from '@/components/BackButton';
-import ProjectContent from '@/components/ProjectContent';
+import CopyLinkButton from '@/components/buttons/CopyLinkButton';
+import BackButton from '@/components/buttons/BackButton';
+import ProjectContent from '@/components/project/ProjectContent';
+import LinkButton from '@/components/buttons/LinkButton';
 
 type Params = { slug: string };
 
@@ -95,32 +96,16 @@ export default async function ProjectPage({
 
           {/* CTAs */}
           <div className="mb-8 flex flex-wrap items-center gap-3">
-            <Link
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
+            <LinkButton href={project.liveUrl} variant="default">
               View live site
-            </Link>
-            <Link
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl px-4 py-2 border border-[--color-border] text-sm transition-colors hover:bg-ink/5 active:bg-ink/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring]"
-            >
+            </LinkButton>
+            <LinkButton href={project.repoUrl} variant="slate">
               View Repository
-            </Link>
-            <Link
-              href={project.repoReadmeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl px-4 py-2 border border-[--color-border] text-sm transition-colors hover:bg-ink/5 active:bg-ink/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring]"
-            >
+            </LinkButton>
+            <LinkButton href={project.repoReadmeUrl} variant="outline">
               View GitHub README
-            </Link>
+            </LinkButton>
           </div>
-
           {/* Content */}
           <ProjectContent paragraphs={project.content} initiallyVisible={2} />
         </div>
