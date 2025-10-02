@@ -17,8 +17,8 @@ export default function HomePage() {
         </h1>
         <p className="mt-4 max-w-2xl text-ink/80">
           I design and build fast, accessible web apps. Below are three featured
-          projects: CSS Frameworks, JavaScript Frameworks, and Semester Project
-          2.
+          projects that I have completed this semester: CSS Frameworks,
+          JavaScript Frameworks, and Semester Project 2.
         </p>
       </section>
 
