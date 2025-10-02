@@ -1,9 +1,9 @@
+// src/components/Nav.tsx
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import SocialLinks from './SocialLinks';
-import { useEffect, useState } from 'react';
+import SocialLinks from '@/components/layout/SocialLinks';
 import { site } from '@/config/site';
 
 function NavLink({
@@ -37,40 +37,29 @@ function NavLink({
 }
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   return (
-    <header
-      className={[
-        'sticky top-0 z-40 border-b border-[--color-border] text-porcelain',
-        // base color
-        'bg-midnight',
-        // glass/blur when scrolled (matches footer’s active style)
-        scrolled
-          ? 'bg-midnight/90 supports-[backdrop-filter]:backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.15)]'
-          : '',
-        'transition-colors duration-300',
-      ].join(' ')}
-    >
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+    <header className="bg-midnight/95 text-porcelain sticky top-0 z-40 border-b border-[--color-border] backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 max-[460px]:px-3 max-[460px]:py-3">
+        <Link
+          href="/"
+          className="font-semibold tracking-tight text-lg max-[460px]:text-base"
+        >
           {site.name}
         </Link>
-        <nav className="flex items-center gap-6 text-sm">
+
+        <nav className="flex items-center gap-6 max-[460px]:gap-3 text-sm">
           <NavLink href="/" match="exact">
             Home
           </NavLink>
           <NavLink href="/about" match="startsWith">
             About
           </NavLink>
-          <SocialLinks showLabels={false} className="ml-2" />
+
+          {/* compact social icons on very small screens */}
+          <SocialLinks
+            showLabels={false}
+            className="ml-2 max-[460px]:ml-1 max-[460px]:gap-2 [&_svg]:size-5 max-[460px]:[&_svg]:size-4"
+          />
         </nav>
       </div>
     </header>

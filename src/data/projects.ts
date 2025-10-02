@@ -18,7 +18,7 @@ export const projects: Project[] = [
     title: 'RunSocial - CSS Frameworks',
     course: 'CSS Frameworks',
     teaser:
-      'Responsive UI with a reusable component library and utility-first workflow.',
+      'Tailwind UI for a social running app—accessible, mobile-first, and fast.',
     thumb: '/projects/css-frameworks-thumb.webp',
     hero: '/projects/css-frameworks-hero.webp',
     caption: 'Component library overview',
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: 'Markéta TheOnlineShop - JavaScript Frameworks',
     course: 'JavaScript Frameworks',
     teaser:
-      'SPA features with clean state management and accessible components.',
+      'Next.js + TypeScript storefront with typed API, Zustand cart, and accessible UI.',
     thumb: '/projects/javascript-frameworks-thumb.webp',
     hero: '/projects/javascript-frameworks-hero.webp',
     caption: 'App screens and flows',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     title: 'Auction Vintage Items - Semester Project 2',
     course: 'Semester Project 2',
     teaser:
-      'End-to-end project: fetching data, product pages, and checkout UX.',
+      'Auction platform with listings, bidding, profiles, and skeleton-loading UI.',
     thumb: '/projects/semester-project-thumb.webp',
     hero: '/projects/semester-project-hero.webp',
     caption: 'Storefront and product details',
