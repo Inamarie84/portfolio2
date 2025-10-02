@@ -12,8 +12,8 @@ export default function AboutPage() {
       <h1 className="text-3xl font-semibold tracking-tight">About</h1>
 
       <p className="mt-4 text-ink/85">
-        I’m a frontend developer completing my second (final) year at Noroff. I
-        focus on building fast, accessible web apps with{' '}
+        I’m a frontend developer student completing my second (final) year at
+        Noroff. I focus on building fast, accessible web apps with{' '}
         <strong>React/Next.js</strong>,<strong> TypeScript</strong>, and{' '}
         <strong>Tailwind CSS</strong>. My strengths are clear component
         architectures, thoughtful UX, and small but meaningful performance wins
