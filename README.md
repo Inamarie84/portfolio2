@@ -1,6 +1,6 @@
 # Ina Marie Forseth - Portfolio 2
 
-![Portfolio 2 homepage](/assets/portfolio-home.jpg)
+![homepage](/assets/portfolio-home.jpg)
 
 A protfolio project for the Frontend Development course at Noroff School of Technology and Digital Media.
 
