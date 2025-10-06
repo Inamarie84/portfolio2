@@ -1,5 +1,5 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
-import { site } from '@/config/site';
+import { Github, Linkedin, Mail } from "lucide-react";
+import { site } from "@/config/site";
 
 type Props = {
   showLabels?: boolean;
@@ -8,7 +8,7 @@ type Props = {
 
 export default function SocialLinks({ showLabels = true, className }: Props) {
   return (
-    <div className={['flex items-center gap-4', className].join(' ')}>
+    <div className={["flex items-center gap-4", className].join(" ")}>
       <a
         href={`mailto:${site.email}`}
         aria-label="Email"

@@ -1,6 +1,6 @@
-'use client';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+"use client";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function CopyLinkButton() {
   const [copied, setCopied] = useState(false);
@@ -18,13 +18,13 @@ export default function CopyLinkButton() {
         } catch {}
       }}
       aria-live="polite"
-      aria-label={copied ? 'Link copied' : 'Copy link to this page'}
+      aria-label={copied ? "Link copied" : "Copy link to this page"}
     >
       <span className="col-start-1 row-start-1 inline-flex h-4 w-4 items-center justify-center relative">
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"
-          className={`h-4 w-4 transition-opacity ${copied ? 'opacity-0' : 'opacity-100'}`}
+          className={`h-4 w-4 transition-opacity ${copied ? "opacity-0" : "opacity-100"}`}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -38,7 +38,7 @@ export default function CopyLinkButton() {
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"
-          className={`absolute h-4 w-4 transition-opacity ${copied ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute h-4 w-4 transition-opacity ${copied ? "opacity-100" : "opacity-0"}`}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -50,13 +50,13 @@ export default function CopyLinkButton() {
       </span>
 
       <span className="col-start-2 row-start-1 text-center">
-        {copied ? 'Link copied!' : 'Copy link'}
+        {copied ? "Link copied!" : "Copy link"}
       </span>
 
       <span aria-hidden="true" className="col-start-3 row-start-1 h-4 w-4" />
 
       <span role="status" className="sr-only">
-        {copied ? 'Link copied' : ''}
+        {copied ? "Link copied" : ""}
       </span>
     </Button>
   );

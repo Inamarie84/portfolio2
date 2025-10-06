@@ -1,13 +1,13 @@
-'use client';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+"use client";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-export default function BackButton({ fallback = '/' }: { fallback?: string }) {
+export default function BackButton({ fallback = "/" }: { fallback?: string }) {
   const router = useRouter();
   function handle(e: React.MouseEvent) {
     e.preventDefault();
-    if (typeof window !== 'undefined' && window.history.length > 1) {
+    if (typeof window !== "undefined" && window.history.length > 1) {
       router.back();
     } else {
       router.push(fallback);

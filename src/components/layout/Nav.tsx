@@ -1,33 +1,33 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import SocialLinks from '@/components/layout/SocialLinks';
-import { site } from '@/config/site';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import SocialLinks from "@/components/layout/SocialLinks";
+import { site } from "@/config/site";
 
 function NavLink({
   href,
   children,
-  match = 'exact',
+  match = "exact",
 }: {
   href: string;
   children: React.ReactNode;
-  match?: 'exact' | 'startsWith';
+  match?: "exact" | "startsWith";
 }) {
   const pathname = usePathname();
   const isActive =
-    match === 'startsWith' ? pathname.startsWith(href) : pathname === href;
+    match === "startsWith" ? pathname.startsWith(href) : pathname === href;
 
   return (
     <Link
       href={href}
-      aria-current={isActive ? 'page' : undefined}
+      aria-current={isActive ? "page" : undefined}
       className={[
-        'relative px-1 py-0.5 transition hover:underline underline-offset-4',
+        "relative px-1 py-0.5 transition hover:underline underline-offset-4",
         isActive
-          ? 'text-gilt after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-gilt'
-          : '',
-      ].join(' ')}
+          ? "text-gilt after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-gilt"
+          : "",
+      ].join(" ")}
     >
       {children}
     </Link>

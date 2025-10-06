@@ -1,20 +1,20 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 type Props = React.PropsWithChildren<{
   href: string;
   target?: string;
   rel?: string;
-  variant?: React.ComponentProps<typeof Button>['variant'];
-  size?: React.ComponentProps<typeof Button>['size'];
+  variant?: React.ComponentProps<typeof Button>["variant"];
+  size?: React.ComponentProps<typeof Button>["size"];
 }>;
 
 export default function LinkButton({
   href,
-  target = '_blank',
-  rel = 'noopener noreferrer',
-  variant = 'outline',
-  size = 'default',
+  target = "_blank",
+  rel = "noopener noreferrer",
+  variant = "outline",
+  size = "default",
   children,
 }: Props) {
   return (
