@@ -60,8 +60,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Optional: keep this compact card, or remove if you feel it's repetitive */}
-      <Bio />
+      <Bio compact />
     </div>
   );
 }

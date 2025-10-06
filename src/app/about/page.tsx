@@ -1,4 +1,3 @@
-// app/about/page.tsx
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
@@ -10,13 +9,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
-      {/* Intro card (no border) */}
       <section className="rounded-xl bg-porcelain shadow-[var(--shadow-card)] p-6">
         <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
-          {/* Headshot */}
           <div className="shrink-0 overflow-hidden rounded-full">
             <Image
-              src="/projects/selfie.webp" // make sure this path exists
+              src="/projects/selfie.webp"
               alt="Portrait of Ina Forseth"
               width={96}
               height={96}
@@ -37,7 +34,6 @@ export default function AboutPage() {
               patterns).
             </p>
 
-            {/* CTAs */}
             <div className="mt-4 flex flex-wrap gap-3">
               <a
                 href="mailto:inaforseth@gmail.com"
@@ -45,6 +41,7 @@ export default function AboutPage() {
               >
                 Email me
               </a>
+
               <a
                 href="https://www.linkedin.com/in/ina-marie-forseth-66a7b232/"
                 target="_blank"
@@ -53,12 +50,29 @@ export default function AboutPage() {
               >
                 LinkedIn
               </a>
+
+              <a
+                href="https://github.com/Inamarie84"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-xl px-4 py-2 text-sm transition hover:bg-ink/5 active:bg-ink/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] border border-[--color-border]"
+                aria-label="View my GitHub profile (opens in a new tab)"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="mr-2 h-4 w-4"
+                  fill="currentColor"
+                >
+                  <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.11.79-.25.79-.55v-2.01c-3.22.7-3.9-1.55-3.9-1.55-.53-1.34-1.29-1.7-1.29-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.72 1.26 3.39.96.11-.76.41-1.26.75-1.55-2.57-.29-5.28-1.28-5.28-5.71 0-1.26.45-2.3 1.2-3.12-.12-.29-.52-1.44.11-3 0 0 .98-.31 3.2 1.19a11.1 11.1 0 0 1 5.82 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.56.23 2.71.11 3 .75.82 1.2 1.86 1.2 3.12 0 4.44-2.72 5.41-5.31 5.7.42.36.8 1.07.8 2.17v3.22c0 .31.21.67.8.55A11.5 11.5 0 0 0 12 .5Z" />
+                </svg>
+                GitHub
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skills & Tools (no borders) */}
       <section className="mt-8 grid gap-8 sm:grid-cols-2">
         <div className="rounded-xl bg-porcelain p-6 shadow-[var(--shadow-card)]">
           <h2 className="text-xl font-semibold">What I’m good at</h2>
@@ -103,7 +117,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Goals / Fit */}
       <section className="mt-8 rounded-xl bg-porcelain p-6 shadow-[var(--shadow-card)]">
         <h2 className="text-xl font-semibold">What I’m looking for</h2>
         <p className="mt-3 text-ink/85 leading-relaxed">
@@ -113,7 +126,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Contact */}
       <section className="mt-8 rounded-xl bg-porcelain p-6 shadow-[var(--shadow-card)]">
         <h2 className="text-xl font-semibold">Contact</h2>
         <p className="mt-3 text-ink/85">
@@ -132,6 +144,15 @@ export default function AboutPage() {
             rel="noopener noreferrer"
           >
             Ina Marie Forseth
+          </a>{' '}
+          · <span className="font-medium">GitHub:</span>{' '}
+          <a
+            className="underline decoration-gilt underline-offset-4"
+            href="https://github.com/Inamarie84"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Inamarie84
           </a>
         </p>
       </section>

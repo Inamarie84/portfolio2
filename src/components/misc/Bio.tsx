@@ -1,25 +1,32 @@
-// components/misc/Bio.tsx (only the text changed)
-import { site } from '@/config/site';
-import SocialLinks from '@/components/layout/SocialLinks';
+// components/misc/Bio.tsx
+export default function Bio({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <section className="mt-12 rounded-xl bg-porcelain shadow-[var(--shadow-card)] p-5">
+        <h2 className="text-lg font-semibold">About me</h2>
+        <p className="mt-2 text-ink/80">
+          Frontend student in Trondheim, focusing on accessible, performant UIs.
+        </p>
+        <a
+          href="/about"
+          className="mt-3 inline-flex items-center rounded-xl px-3 py-1.5 text-sm border border-[--color-border] hover:bg-ink/5"
+        >
+          Read more →
+        </a>
+      </section>
+    );
+  }
 
-export default function Bio() {
+  // Full version (used on /about)
   return (
     <section className="mt-16 rounded-xl bg-porcelain shadow-[var(--shadow-card)] p-6">
       <h2 className="text-xl font-semibold">About me</h2>
       <p className="mt-2 max-w-3xl text-ink/80">
-        My name is Ina and I live in Trondheim, Norway. I’m a frontend developer
-        student, finishing my second year at Noroff (Frontend-Development). I
-        build accessible, performant UIs with React/Next.js and Tailwind, and I
-        enjoy clean state management and component-driven design. Let’s chat —{' '}
-        <a
-          className="underline decoration-gilt underline-offset-4"
-          href={`mailto:${site.email}`}
-        >
-          {site.email}
-        </a>
-        .
+        I’m a frontend developer student finishing my second year at Noroff. I
+        build accessible, performant UIs with React/Next.js and Tailwind, with a
+        focus on clean state management and component-driven design.
       </p>
-      <SocialLinks showLabels={true} className="mt-4" />
+      {/* SocialLinks here */}
     </section>
   );
 }
