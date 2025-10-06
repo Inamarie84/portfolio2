@@ -37,7 +37,7 @@ export default function ProjectCard({
         {/* Content grows to fill, keeping heights equal */}
         <div className="flex grow flex-col p-5 gap-2">
           {course && (
-            <span className="inline-flex items-center rounded-full px-2.5 py-1 text-[14px] border border-transparent bg-[var(--chip-bg)] text-[var(--chip-fg)]">
+            <span className="inline-flex items-center rounded-full px-2.5 py-1 text-[12px] border border-transparent bg-[var(--chip-bg)] text-[var(--chip-fg)]">
               {course}
             </span>
           )}
