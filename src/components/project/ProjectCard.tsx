@@ -1,4 +1,3 @@
-// src/components/project/ProjectCard.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,7 +21,6 @@ export default function ProjectCard({
       aria-label={`Read more about ${title}`}
     >
       <article className="h-full flex flex-col rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-md">
-        {/* Fixed aspect image keeps tops consistent */}
         <div className="aspect-[16/10] w-full overflow-hidden rounded-t-xl">
           <Image
             src={thumb}
@@ -34,7 +32,6 @@ export default function ProjectCard({
           />
         </div>
 
-        {/* Content grows to fill, keeping heights equal */}
         <div className="flex grow flex-col p-5 gap-2">
           {course && (
             <span className="inline-flex items-center rounded-full px-2.5 py-1 text-[12px] border border-transparent bg-[var(--chip-bg)] text-[var(--chip-fg)]">
@@ -45,7 +42,6 @@ export default function ProjectCard({
           <h3 className="text-lg font-semibold">{title}</h3>
           <p className="text-sm/6 text-ink/70 line-clamp-2">{teaser}</p>
 
-          {/* keeps the CTA aligned even when teaser lines differ */}
           <span className="mt-auto inline-flex items-center gap-2 text-midnight text-sm font-medium pt-1">
             Read more →
           </span>

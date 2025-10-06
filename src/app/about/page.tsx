@@ -1,14 +1,14 @@
-import Image from 'next/image';
-import type { Metadata } from 'next';
+import Image from "next/image";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'Bio, skills, tools, and contact.',
+  title: "About",
+  description: "Bio, skills, tools, and contact.",
 };
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
+    <div className="mx-auto max-w-3xl px-4 py-12">
       <section className="rounded-xl bg-porcelain shadow-[var(--shadow-card)] p-6">
         <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
           <div className="shrink-0 overflow-hidden rounded-full">
@@ -26,8 +26,8 @@ export default function AboutPage() {
             <h1 className="text-3xl font-semibold tracking-tight">About</h1>
             <p className="mt-3 text-ink/85 leading-relaxed">
               I’m a frontend developer student finishing my second (final) year
-              at Noroff. I build fast, accessible web apps with{' '}
-              <strong>React/Next.js</strong>, <strong>TypeScript</strong>, and{' '}
+              at Noroff. I build fast, accessible web apps with{" "}
+              <strong>React/Next.js</strong>, <strong>TypeScript</strong>, and{" "}
               <strong>Tailwind CSS</strong>. My strengths are clean component
               architecture, thoughtful UX, and small but meaningful performance
               wins (stable image loading, predictable layouts, and a11y-first
@@ -78,12 +78,12 @@ export default function AboutPage() {
           <h2 className="text-xl font-semibold">What I’m good at</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
             {[
-              'React / Next.js',
-              'TypeScript',
-              'Tailwind CSS',
-              'State mgmt (Zustand)',
-              'Accessibility (WCAG)',
-              'Testing (RTL)',
+              "React / Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "State mgmt (Zustand)",
+              "Accessibility (WCAG)",
+              "Testing (RTL)",
             ].map((label) => (
               <li
                 key={label}
@@ -99,12 +99,12 @@ export default function AboutPage() {
           <h2 className="text-xl font-semibold">Tools I use</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
             {[
-              'VS Code',
-              'Git / GitHub',
-              'Vercel / Netlify',
-              'Figma',
-              'Chrome DevTools',
-              'Lighthouse',
+              "VS Code",
+              "Git / GitHub",
+              "Vercel / Netlify",
+              "Figma",
+              "Chrome DevTools",
+              "Lighthouse",
             ].map((label) => (
               <li
                 key={label}
@@ -129,14 +129,14 @@ export default function AboutPage() {
       <section className="mt-8 rounded-xl bg-porcelain p-6 shadow-[var(--shadow-card)]">
         <h2 className="text-xl font-semibold">Contact</h2>
         <p className="mt-3 text-ink/85">
-          <span className="font-medium">Email:</span>{' '}
+          <span className="font-medium">Email:</span>{" "}
           <a
             className="underline decoration-gilt underline-offset-4"
             href="mailto:inaforseth@gmail.com"
           >
             inaforseth@gmail.com
-          </a>{' '}
-          · <span className="font-medium">LinkedIn:</span>{' '}
+          </a>{" "}
+          · <span className="font-medium">LinkedIn:</span>{" "}
           <a
             className="underline decoration-gilt underline-offset-4"
             href="https://www.linkedin.com/in/ina-marie-forseth-66a7b232/"
@@ -144,8 +144,8 @@ export default function AboutPage() {
             rel="noopener noreferrer"
           >
             Ina Marie Forseth
-          </a>{' '}
-          · <span className="font-medium">GitHub:</span>{' '}
+          </a>{" "}
+          · <span className="font-medium">GitHub:</span>{" "}
           <a
             className="underline decoration-gilt underline-offset-4"
             href="https://github.com/Inamarie84"
@@ -156,6 +156,6 @@ export default function AboutPage() {
           </a>
         </p>
       </section>
-    </main>
+    </div>
   );
 }

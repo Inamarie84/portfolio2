@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import { site } from '@/config/site';
 
 type Props = {
-  showLabels?: boolean; // labels on/off
+  showLabels?: boolean;
   className?: string;
 };
 

@@ -39,7 +39,6 @@ export default function Footer({ sticky = false }: { sticky?: boolean }) {
           Tailwind.
         </p>
 
-        {/* Social icons centered beneath the text */}
         <SocialLinks className="justify-center" />
       </div>
     </footer>

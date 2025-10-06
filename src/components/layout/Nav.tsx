@@ -1,4 +1,3 @@
-// src/components/layout/Nav.tsx
 'use client';
 
 import Link from 'next/link';
@@ -39,7 +38,6 @@ export default function Nav() {
   return (
     <header className="bg-midnight/95 text-porcelain sticky top-0 z-40 border-b border-[--color-border] backdrop-blur supports-[backdrop-filter]:backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 max-[460px]:px-3 max-[460px]:py-3">
-        {/* Brand (acts as the Home link to avoid duplicate links to "/") */}
         <Link
           href="/"
           className="font-semibold tracking-tight text-lg max-[460px]:text-base"
@@ -48,12 +46,10 @@ export default function Nav() {
         </Link>
 
         <nav className="flex items-center gap-6 max-[460px]:gap-3 text-sm">
-          {/* Removed explicit "Home" link to avoid WAVE's “redundant link” */}
           <NavLink href="/about" match="startsWith">
             About
           </NavLink>
 
-          {/* compact social icons on very small screens */}
           <SocialLinks
             showLabels={false}
             className="ml-2 max-[460px]:ml-1 max-[460px]:gap-2 [&_svg]:size-5 max-[460px]:[&_svg]:size-4"

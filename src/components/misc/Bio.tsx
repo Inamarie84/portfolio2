@@ -1,4 +1,3 @@
-// components/misc/Bio.tsx
 export default function Bio({ compact = false }: { compact?: boolean }) {
   if (compact) {
     return (
@@ -17,7 +16,6 @@ export default function Bio({ compact = false }: { compact?: boolean }) {
     );
   }
 
-  // Full version (used on /about)
   return (
     <section className="mt-16 rounded-xl bg-porcelain shadow-[var(--shadow-card)] p-6">
       <h2 className="text-xl font-semibold">About me</h2>
@@ -26,7 +24,6 @@ export default function Bio({ compact = false }: { compact?: boolean }) {
         build accessible, performant UIs with React/Next.js and Tailwind, with a
         focus on clean state management and component-driven design.
       </p>
-      {/* SocialLinks here */}
     </section>
   );
 }

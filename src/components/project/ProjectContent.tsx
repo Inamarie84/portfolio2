@@ -1,21 +1,6 @@
-// src/components/ProjectContent.tsx
-'use client';
-
-import { useId, useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
-
-const ALLOW_LABELS = [
-  'Overview',
-  'Scope',
-  'Objectives',
-  'Constraints',
-  'Process',
-  'Outcomes',
-  'Improvements',
-  'Learnings',
-  'Results',
-  'Notes',
-];
+"use client";
+import { useId, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function ProjectContent({
   paragraphs,
@@ -35,8 +20,8 @@ export default function ProjectContent({
   function toggle() {
     if (expanded) {
       sectionRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
     setExpanded((v) => !v);
@@ -44,64 +29,41 @@ export default function ProjectContent({
 
   return (
     <section ref={sectionRef} aria-labelledby={`project-content-${contentId}`}>
-      {/* Content box with optional fade */}
+      <h2 id={`project-content-${contentId}`} className="sr-only">
+        Project details
+      </h2>
+
       <div
-        id={`project-content-${contentId}`}
         className={cn(
-          'relative',
-          expanded ? '' : 'max-h-[38rem] overflow-hidden',
+          "relative",
+          expanded ? "" : "max-h-[38rem] overflow-hidden",
         )}
       >
         <div className="space-y-5 md:space-y-6">
-          {visibleParas.map((para, i) => {
-            // Bold the label before ":" if it matches allowed labels
-            // or starts with "Challenge → ..."
-            const match = para.match(/^\s*([^:]+):\s*(.*)$/);
-            if (match) {
-              const [, label, rest] = match;
-              const isAllowed =
-                ALLOW_LABELS.some((k) => label.startsWith(k)) ||
-                label.startsWith('Challenge');
-
-              if (isAllowed) {
-                return (
-                  <p key={i} className="text-ink/85 leading-relaxed">
-                    <strong>{label}:</strong> {rest}
-                  </p>
-                );
-              }
-            }
-
-            return (
-              <p key={i} className="text-ink/85 leading-relaxed">
-                {para}
-              </p>
-            );
-          })}
+          {visibleParas.map((para, i) => (
+            <p key={i} className="text-ink/85 leading-relaxed">
+              {para}
+            </p>
+          ))}
         </div>
 
-        {/* Fade overlay (only when collapsed) */}
         {!expanded && (
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-16
-                       bg-gradient-to-b from-transparent to-[var(--color-porcelain)]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-[var(--color-porcelain)]"
           />
         )}
       </div>
 
-      {/* Toggle button lives OUTSIDE the masked area */}
       <div className="mt-4">
         <button
           type="button"
           onClick={toggle}
           aria-expanded={expanded}
           aria-controls={`project-content-${contentId}`}
-          className="inline-flex items-center rounded-xl border border-[--color-border] px-4 py-2 text-sm
-                     hover:bg-ink/5 active:bg-ink/10 focus-visible:outline-none
-                     focus-visible:ring-2 focus-visible:ring-[--color-ring] cursor-pointer"
+          className="inline-flex items-center rounded-xl border border-[--color-border] px-4 py-2 text-sm hover:bg-ink/5 active:bg-ink/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] cursor-pointer"
         >
-          {expanded ? 'Show less' : 'Show more'}
+          {expanded ? "Show less" : "Show more"}
         </button>
       </div>
     </section>

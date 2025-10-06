@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import { getProject, projects } from '@/data/projects';
-import CopyLinkButton from '@/components/buttons/CopyLinkButton';
-import BackButton from '@/components/buttons/BackButton';
-import ProjectContent from '@/components/project/ProjectContent';
-import LinkButton from '@/components/buttons/LinkButton';
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { getProject, projects } from "@/data/projects";
+import CopyLinkButton from "@/components/buttons/CopyLinkButton";
+import BackButton from "@/components/buttons/BackButton";
+import ProjectContent from "@/components/project/ProjectContent";
+import LinkButton from "@/components/buttons/LinkButton";
 
 type Params = { slug: string };
 
@@ -41,22 +41,18 @@ export default async function ProjectPage({
   if (!project) return notFound();
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
+    <div className="mx-auto max-w-3xl px-4 py-10">
       <article className="rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)]">
-        {/* Header */}
         <header className="px-4 sm:px-6 pt-6">
           <h1 className="text-center text-2xl md:text-3xl font-semibold tracking-tight">
             {project.title}
           </h1>
 
-          {/* Toolbar: back | badges | copy */}
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] sm:items-center gap-3">
-            {/* left: back */}
             <div className="flex justify-center sm:justify-start">
               <BackButton />
             </div>
 
-            {/* center: badges */}
             <div className="flex flex-wrap items-center justify-center gap-2">
               <span className="inline-flex items-center rounded-full px-2.5 py-1 text-xs border border-transparent bg-[var(--chip-bg)] text-[var(--chip-fg)]">
                 Tailwind CSS
@@ -69,14 +65,12 @@ export default async function ProjectPage({
               </span>
             </div>
 
-            {/* right: copy */}
             <div className="flex justify-center sm:justify-end">
               <CopyLinkButton />
             </div>
           </div>
         </header>
 
-        {/* Body */}
         <div className="px-4 sm:px-6 pb-6">
           <figure className="mt-4 mb-6 overflow-hidden rounded-xl bg-porcelain shadow-[var(--shadow-card)]">
             <Image
@@ -92,7 +86,6 @@ export default async function ProjectPage({
             </figcaption>
           </figure>
 
-          {/* CTAs */}
           <div className="mb-8 flex flex-wrap items-center gap-3">
             <LinkButton href={project.liveUrl} variant="default">
               View live site
@@ -104,10 +97,10 @@ export default async function ProjectPage({
               View GitHub README
             </LinkButton>
           </div>
-          {/* Content */}
+
           <ProjectContent paragraphs={project.content} initiallyVisible={2} />
         </div>
       </article>
-    </main>
+    </div>
   );
 }
