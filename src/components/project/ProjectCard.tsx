@@ -7,11 +7,13 @@ export default function ProjectCard({
   title,
   teaser,
   thumb,
+  course,
 }: {
   slug: string;
   title: string;
   teaser: string;
   thumb: string;
+  course?: string;
 }) {
   return (
     <Link
@@ -19,8 +21,8 @@ export default function ProjectCard({
       className="group block h-full focus-visible:outline-none"
       aria-label={`Read more about ${title}`}
     >
-      <article className="h-full rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-md flex flex-col">
-        {/* fixed thumbnail area */}
+      <article className="h-full flex flex-col rounded-xl bg-porcelain text-ink shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-md">
+        {/* Fixed aspect image keeps tops consistent */}
         <div className="aspect-[16/10] w-full overflow-hidden rounded-t-xl">
           <Image
             src={thumb}
@@ -32,21 +34,21 @@ export default function ProjectCard({
           />
         </div>
 
-        {/* body */}
-        <div className="p-5 flex flex-col gap-2 flex-1">
-          <h3 className="text-lg font-semibold">{title}</h3>
-
-          {/* reserve space for exactly 2 lines so all cards equalize */}
-          <p className="text-sm/6 text-ink/70 line-clamp-2 min-h-[3rem]">
-            {teaser}
-          </p>
-
-          {/* pushes CTA to the bottom for consistent layout */}
-          <div className="mt-auto pt-1">
-            <span className="inline-flex items-center gap-2 text-midnight text-sm font-medium">
-              Read more →
+        {/* Content grows to fill, keeping heights equal */}
+        <div className="flex grow flex-col p-5 gap-2">
+          {course && (
+            <span className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] border border-transparent bg-[var(--chip-bg)] text-[var(--chip-fg)]">
+              {course}
             </span>
-          </div>
+          )}
+
+          <h3 className="text-lg font-semibold">{title}</h3>
+          <p className="text-sm/6 text-ink/70 line-clamp-2">{teaser}</p>
+
+          {/* keeps the CTA aligned even when teaser lines differ */}
+          <span className="mt-auto inline-flex items-center gap-2 text-midnight text-sm font-medium pt-1">
+            Read more →
+          </span>
         </div>
       </article>
     </Link>
